@@ -23,7 +23,9 @@ interface ApiRequests {
     .baseUrl(BASE_URL)
     .addConverterFactory(GsonConverterFactory.create())
     .build()
-    .create(ApiRequests::class.java)
 
 
-//    val retrofitService : ApiRequests by lazy { retrofit.create(ApiRequests::class.java) }
+object ApiObject {
+
+    val retrofitService : ApiRequests by lazy { retrofit.create(ApiRequests::class.java) }
+}

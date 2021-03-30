@@ -13,9 +13,10 @@ class UserRepository(private val apiRequests: ApiRequests) {
 
     fun getResult() = Pager(
             config = PagingConfig(
-                pageSize = 20,
-                maxSize = 100,
+                pageSize = 6,
+                maxSize = 12,
                 enablePlaceholders = false,
+                prefetchDistance = 1
 
             ),
             pagingSourceFactory = { UserPagingSource(apiRequests) }

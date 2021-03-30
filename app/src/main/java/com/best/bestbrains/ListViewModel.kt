@@ -7,7 +7,6 @@ import kotlinx.coroutines.flow.Flow
 
 class ListViewModel(private val repository: UserRepository): ViewModel() {
 
-    private val currentUser = MutableLiveData(repository.getResult())
     val users = repository.getResult()
 
 }
