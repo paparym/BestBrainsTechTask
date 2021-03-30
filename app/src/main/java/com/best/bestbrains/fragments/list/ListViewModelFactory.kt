@@ -1,8 +1,10 @@
-package com.best.bestbrains
+package com.best.bestbrains.fragments.list
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
+import com.best.bestbrains.data.UserRepository
 
+// Factory to pass a repo into ViewModel's constructor
 class ListViewModelFactory(
     private val repository: UserRepository,
 ) : ViewModelProvider.Factory {

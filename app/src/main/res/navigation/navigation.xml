@@ -5,14 +5,22 @@
 
     <fragment
         android:id="@+id/detailFragment"
-        android:name="com.best.bestbrains.DetailFragment"
-        android:label="DetailFragment" />
+        android:name="com.best.bestbrains.fragments.detail.DetailFragment"
+        android:label="DetailFragment" >
+        <argument
+            android:name="user"
+            app:argType="com.best.bestbrains.api.User" />
+    </fragment>
     <fragment
         android:id="@+id/listFragment"
-        android:name="com.best.bestbrains.ListFragment"
+        android:name="com.best.bestbrains.fragments.list.ListFragment"
         android:label="ListFragment" >
         <action
             android:id="@+id/action_listFragment_to_detailFragment"
-            app:destination="@id/detailFragment" />
+            app:destination="@id/detailFragment"
+            app:enterAnim="@anim/enter_right_to_left"
+            app:exitAnim="@anim/exit_right_to_left"
+            app:popEnterAnim="@anim/enter_left_to_right"
+            app:popExitAnim="@anim/exit_left_to_right" />
     </fragment>
 </navigation>

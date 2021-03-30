@@ -1,5 +1,6 @@
 package com.best.bestbrains.api
 
+// from Json
 data class Pages(
     val `data`: MutableList<User>,
     val page: Int,
