@@ -54,12 +54,10 @@ class ListFragment: Fragment(R.layout.fragment_list) {
 //            }
 //        }
 
-        backgroundScope.launch {
-            viewModel.users.collectLatest {
-                itemAdapter.submitData(it)
-                Log.d("TAG", "${it}")
+            viewModel.users.observe(viewLifecycleOwner) {
+                itemAdapter.submitData(viewLifecycleOwner.lifecycle, it)
             }
-        }
+
 
 
 

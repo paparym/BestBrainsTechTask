@@ -10,9 +10,6 @@ import kotlinx.coroutines.flow.Flow
 
 class UserRepository(private val apiRequests: ApiRequests) {
 
-    val usersTest: Flow<PagingData<User>> = Pager(PagingConfig(pageSize = 20)) {
-        UserPagingSource(apiRequests)
-    }.flow
 
     fun getResult() = Pager(
             config = PagingConfig(
@@ -22,6 +19,6 @@ class UserRepository(private val apiRequests: ApiRequests) {
 
             ),
             pagingSourceFactory = { UserPagingSource(apiRequests) }
-        ).flow
+        ).liveData
 
 }
