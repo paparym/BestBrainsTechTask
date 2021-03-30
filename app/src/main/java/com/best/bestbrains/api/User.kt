@@ -10,5 +10,8 @@ data class User(
     val email: String,
     val first_name: String,
     val id: Int,
-    val last_name: String
-): Parcelable
+    val last_name: String,
+): Parcelable {
+    val fullName: String
+       get() = "${"$first_name $last_name"}"
+}

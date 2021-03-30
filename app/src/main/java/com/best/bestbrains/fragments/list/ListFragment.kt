@@ -54,6 +54,9 @@ class ListFragment : Fragment(R.layout.fragment_list) {
             }
         }
 
+        (activity as MainActivity).supportActionBar?.title = "BestBrain"
+
+
         return binding.root
     }
 

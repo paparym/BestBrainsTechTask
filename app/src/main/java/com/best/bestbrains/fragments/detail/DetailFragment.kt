@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.navArgs
+import com.best.bestbrains.MainActivity
 import com.best.bestbrains.R
 import com.best.bestbrains.databinding.FragmentDetailBinding
 
@@ -25,7 +26,11 @@ class DetailFragment: Fragment(R.layout.fragment_detail) {
     ): View {
         binding = FragmentDetailBinding.inflate(inflater)
 
+
         val args: DetailFragmentArgs by navArgs()
+        (activity as MainActivity).supportActionBar?.title = "${args.user.fullName}"
+
+
         viewModelFactory = DetailViewModelFactory(args.user)
         viewModel = ViewModelProvider(this, viewModelFactory).get(DetailViewModel::class.java)
 

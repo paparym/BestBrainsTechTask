@@ -17,6 +17,7 @@
         tools:context=".DetailFragment">
 
         <ImageView
+            android:layout_margin="25dp"
             android:id="@+id/avatar"
             submitImage="@{viewModel.userItem.avatar}"
             android:layout_width="0dp"
@@ -30,40 +31,34 @@
             android:id="@+id/email"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="7dp"
-            android:layout_marginStart="30dp"
+            android:layout_marginTop="10dp"
             android:text="@{viewModel.userItem.email}"
             android:textColor="#000000"
             android:textSize="17sp"
-            app:layout_constraintStart_toStartOf="@id/avatar"
-            app:layout_constraintTop_toBottomOf="@id/avatar" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/firstName"
+            app:layout_constraintEnd_toEndOf="parent" />
 
         <TextView
+            android:textColor="#000000"
             android:id="@+id/firstName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="30dp"
-            android:text="@{viewModel.userItem.first_name}"
+            android:text="@{viewModel.userItem.fullName}"
             android:textSize="25sp"
-            app:layout_constraintStart_toStartOf="@id/avatar"
-            app:layout_constraintTop_toBottomOf="@id/email" />
+            android:gravity="center"
+            android:layout_marginTop="10dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/avatar"
+            app:layout_constraintEnd_toEndOf="parent"/>
 
-        <TextView
-            android:id="@+id/lastName"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="30dp"
-            android:text="@{viewModel.userItem.last_name}"
-            android:textSize="25sp"
-            app:layout_constraintStart_toStartOf="@id/avatar"
-            app:layout_constraintTop_toBottomOf="@id/firstName" />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.4" />
+            app:layout_constraintGuide_percent="0.3" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
