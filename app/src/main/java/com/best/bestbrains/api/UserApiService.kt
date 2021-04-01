@@ -1,6 +1,5 @@
 package com.best.bestbrains.api
 
-import retrofit2.Call
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.GET
@@ -11,10 +10,10 @@ const val BASE_URL = "https://reqres.in/api/"
 interface ApiRequests {
 
     @GET(value = "users")
-    fun getPage(
+    suspend fun getPage(
         @Query(value = "page")
         page: Int
-    ): Call<Pages>
+    ): Pages
 
 }
 
