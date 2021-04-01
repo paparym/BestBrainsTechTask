@@ -5,21 +5,22 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.best.bestbrains.*
-import com.best.bestbrains.api.ApiObject
 import com.best.bestbrains.ItemAdapter
 import com.best.bestbrains.data.UserRepository
 import com.best.bestbrains.databinding.FragmentListBinding
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.*
 
+@AndroidEntryPoint
 class ListFragment : Fragment(R.layout.fragment_list) {
 
     lateinit var binding: FragmentListBinding
-    lateinit var viewModel: ListViewModel
-    lateinit var viewModelFactory: ListViewModelFactory
-    lateinit var repository: UserRepository
+
+    private val viewModel by viewModels<ListViewModel>()
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -27,10 +28,6 @@ class ListFragment : Fragment(R.layout.fragment_list) {
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentListBinding.inflate(inflater)
-
-        repository = UserRepository(ApiObject.retrofitService)
-        viewModelFactory = ListViewModelFactory(repository)
-        viewModel = ViewModelProvider(this, viewModelFactory).get(ListViewModel::class.java)
 
         // We pass a custom click listener for additional control and separation of concerns
         val itemAdapter = ItemAdapter(ItemAdapter.CustomClickListener {

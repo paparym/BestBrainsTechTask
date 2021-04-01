@@ -10,6 +10,7 @@ import androidx.navigation.fragment.navArgs
 import com.best.bestbrains.MainActivity
 import com.best.bestbrains.R
 import com.best.bestbrains.databinding.FragmentDetailBinding
+import dagger.hilt.android.AndroidEntryPoint
 
 class DetailFragment: Fragment(R.layout.fragment_detail) {
 
@@ -27,6 +28,8 @@ class DetailFragment: Fragment(R.layout.fragment_detail) {
         binding = FragmentDetailBinding.inflate(inflater)
 
 
+        // The correct way for passing args from safe-args would be using a SaveStateHandle
+        // (sort of a bundle-logic helper), but here I used ViewModelFactory for demonstration purposes.
         val args: DetailFragmentArgs by navArgs()
         (activity as MainActivity).supportActionBar?.title = "${args.user.fullName}"
 

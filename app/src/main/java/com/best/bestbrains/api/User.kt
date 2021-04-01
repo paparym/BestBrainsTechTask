@@ -2,6 +2,7 @@ package com.best.bestbrains.api
 
 import android.os.Parcelable
 import kotlinx.parcelize.Parcelize
+import javax.inject.Inject
 
 // from Json
 @Parcelize

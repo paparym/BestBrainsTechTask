@@ -5,9 +5,12 @@ import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.GET
 import retrofit2.http.Query
 
-const val BASE_URL = "https://reqres.in/api/"
 
 interface ApiRequests {
+
+    companion object {
+        const val BASE_URL = "https://reqres.in/api/"
+    }
 
     @GET(value = "users")
     suspend fun getPage(
@@ -17,12 +20,3 @@ interface ApiRequests {
 
 }
 
- val retrofit = Retrofit.Builder()
-    .baseUrl(BASE_URL)
-    .addConverterFactory(GsonConverterFactory.create())
-    .build()
-
-
-object ApiObject {
-    val retrofitService : ApiRequests by lazy { retrofit.create(ApiRequests::class.java) }
-}

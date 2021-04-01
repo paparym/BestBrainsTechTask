@@ -2,8 +2,11 @@ package com.best.bestbrains.data
 import androidx.paging.*
 import com.best.bestbrains.api.ApiRequests
 import com.best.bestbrains.data.UserPagingSource
+import javax.inject.Inject
+import javax.inject.Singleton
 
-class UserRepository(private val apiRequests: ApiRequests) {
+@Singleton
+class UserRepository @Inject constructor(private val apiRequests: ApiRequests) {
 
     // Paging 3 library Util
     fun getResult() = Pager(

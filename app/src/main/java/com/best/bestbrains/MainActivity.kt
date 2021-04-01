@@ -6,8 +6,10 @@ import androidx.databinding.DataBindingUtil
 import androidx.navigation.findNavController
 import androidx.navigation.ui.NavigationUI
 import com.best.bestbrains.databinding.ActivityMainBinding
+import dagger.hilt.android.AndroidEntryPoint
 
 // Container for our fragments
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
